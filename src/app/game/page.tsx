@@ -1,6 +1,7 @@
 import {Pokemon, PokemonClient, PokemonSpecies} from "pokenode-ts";
 import Guesser from "@/app/game/guesser/guesser";
 import Image from 'next/image';
+export const dynamic = 'force-dynamic';
 
 export default async function Game() {
     async function fetchPokemon() {
@@ -11,8 +12,10 @@ export default async function Game() {
         const min = 1;
         const max = Math.floor(speciesCount);
         const randomSpeciesIndex = Math.floor(Math.random() * (max - min + 1)) + min;
+
         const speciesResource = (await api.listPokemonSpecies(randomSpeciesIndex, 1)).results[0];
         species = await api.getPokemonSpeciesByName(speciesResource.name);
+
         const defaultPokemon = species.varieties.find(v => v.is_default);
         if (defaultPokemon?.pokemon.name) {
             pokemon = await api.getPokemonByName(defaultPokemon.pokemon.name);

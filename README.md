@@ -30,6 +30,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 * Difficulty levels by changing the level of obfuscation applied to the art
 * Implementing Pokemon sound as a hint
 * Allowing users to filter the initial Pokemon selection to specific generations, types, etc.
+* The game's main page is set to dynamic which could be avoided by changing the data retrieval and component flows
 
 ## Limitations
 * The "appears in" hint on occasion does not have any data as there's nothing returned by the API
